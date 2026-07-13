@@ -1,0 +1,6 @@
+name = "fizz"
+compatibility_date = "2024-11-01"
+
+# Static site: serve the files in this folder as assets, no Worker script.
+[assets]
+directory = "."

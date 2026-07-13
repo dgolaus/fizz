@@ -1,116 +1,116 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="Fizz. Commission management for Discord." width="100%" />
+<img src="assets/banner.svg" alt="Fizz. Gerenciamento de comissoes para Discord." width="100%" />
 
 <br />
 
-**Commission management for Discord.**
-Take orders, run your queue and keep every project documented, all in one place.
+**Gerenciamento de comissões para Discord.**
+Receba pedidos, organize sua fila e mantenha cada projeto documentado, tudo em um só lugar.
 
 <br />
 
-[![Add to Server](https://img.shields.io/badge/Add%20to%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/oauth2/authorize?client_id=1525731670886580365&permissions=268561424&scope=bot+applications.commands)
-[![Website](https://img.shields.io/badge/fizz.gfxs0da.com-ff3b3b?style=for-the-badge&logoColor=white)](https://fizz.gfxs0da.com)
+[![Adicionar ao Servidor](https://img.shields.io/badge/Adicionar%20ao%20Servidor-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/oauth2/authorize?client_id=1525731670886580365&permissions=268561424&scope=bot+applications.commands)
+[![Site](https://img.shields.io/badge/fizz.gfxs0da.com-ff3b3b?style=for-the-badge&logoColor=white)](https://fizz.gfxs0da.com)
 
 ![Node.js](https://img.shields.io/badge/Node.js-22-000000?style=flat-square&logo=node.js&logoColor=white)
 ![discord.js](https://img.shields.io/badge/discord.js-v14-000000?style=flat-square&logo=discord&logoColor=5865F2)
 ![Prisma](https://img.shields.io/badge/Prisma-SQLite-000000?style=flat-square&logo=prisma&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-000000?style=flat-square)
+![Licenca](https://img.shields.io/badge/Licenca-MIT-000000?style=flat-square)
 
 </div>
 
 <br />
 
-## What is Fizz
+## O que é o Fizz
 
-Fizz turns a Discord server into a commission pipeline for **artists, designers and freelancers** who take orders through Discord.
+O Fizz transforma um servidor do Discord numa esteira de comissões para **artistas, designers e freelancers** que recebem pedidos pelo Discord.
 
-Instead of orders buried in DMs, a messy line of who is next, and project history that vanishes when a channel is deleted, Fizz keeps the whole process in order: from the moment a client opens a ticket to the moment the finished project is archived as a readable transcript.
+No lugar de pedidos perdidos em DMs, uma fila bagunçada de quem é o próximo, e histórico que some quando um canal é deletado, o Fizz mantém o processo inteiro em ordem: do momento em que o cliente abre um ticket até o projeto virar um transcript arquivado.
 
-> **No lost DMs · No messy order lists · No missing ticket history**
-
-<br />
-
-## Why it exists
-
-Working with commissions on Discord usually means juggling three problems at once:
-
-- Orders scattered across private messages
-- A queue that only lives in your head
-- Chat history that disappears the second a channel is closed
-
-Fizz fixes all three. Ticket orders and DM clients share **one clear queue**, statuses move as you work, and every conversation is saved as a transcript that survives the channel being deleted.
+> **Sem DMs perdidas · Sem listas de pedido bagunçadas · Sem histórico de ticket sumindo**
 
 <br />
 
-## Core features
+## Por que existe
 
-| | Feature | What it does |
+Trabalhar com comissões no Discord normalmente é lidar com três problemas ao mesmo tempo:
+
+- Pedidos espalhados em mensagens privadas
+- Uma fila que só existe na sua cabeça
+- Histórico de conversa que desaparece assim que um canal é fechado
+
+O Fizz resolve os três. Pedidos de ticket e clientes de DM ficam numa **única fila**, os status mudam conforme você trabalha, e cada conversa é salva como um transcript que sobrevive à deleção do canal.
+
+<br />
+
+## Recursos principais
+
+| | Recurso | O que faz |
 |---|---|---|
-| 🎫 | **Accept orders** | Clients open a private ticket in one click. Each order lives in its own channel, away from public chat. |
-| 📊 | **Manage your workload** | Ticket orders and DM clients sit in one queue, with positions, statuses, manual entries and optional Rush Priority. |
-| 🔄 | **Track project status** | Move orders from waiting, to in progress, to completed. Your workload stays clear at every stage. |
-| 🗂️ | **Keep every record** | Messages, images and details are saved in readable transcripts that remain available after a ticket is closed. |
+| 🎫 | **Receber pedidos** | Clientes abrem um ticket privado num clique. Cada pedido fica no próprio canal, longe do chat público. |
+| 📊 | **Gerenciar sua carga** | Pedidos de ticket e clientes de DM numa fila só, com posições, status, entradas manuais e Rush Priority opcional. |
+| 🔄 | **Acompanhar o status** | Mova os pedidos de esperando, para em progresso, para concluído. Sua carga fica clara em cada etapa. |
+| 🗂️ | **Guardar cada registro** | Mensagens, imagens e detalhes salvos em transcripts legíveis que continuam disponíveis depois que o ticket fecha. |
 
-**Also included:** private notes · blacklist · add and remove users · automatic statuses · slash commands.
-
-<br />
-
-## From order to delivery
-
-```
-1 · Open      A client opens a private order ticket
-2 · Queue     The project joins your queue automatically
-3 · Priority  Optional Rush Priority can move urgent orders ahead
-4 · Progress  Update status and keep private notes as you work
-5 · Deliver   Final files land inside the ticket
-6 · Archive   Close the ticket and the full transcript is kept
-```
+**Também incluído:** notas privadas · blacklist · adicionar e remover usuários · status automático · slash commands.
 
 <br />
 
-## Commands
+## Do pedido à entrega
 
-| Command | Description |
+```
+1 · Abrir       O cliente abre um ticket de pedido privado
+2 · Fila        O projeto entra na sua fila automaticamente
+3 · Prioridade  O Rush Priority opcional pode mover pedidos urgentes pra frente
+4 · Progresso   Atualize o status e guarde notas privadas enquanto trabalha
+5 · Entrega     Os arquivos finais chegam dentro do ticket
+6 · Arquivo     Feche o ticket e o transcript completo é mantido
+```
+
+<br />
+
+## Comandos
+
+| Comando | Descrição |
 |---|---|
-| `/panel` | Post the order panel in a channel |
-| `/queue` | View and manage your workload |
-| `/add-queue` | Add an order received through DMs |
-| `/status` | Update an order's status and priority |
-| `/done` | Mark an order as completed |
-| `/note` · `/notes` | Add and view private notes |
-| `/add-user` · `/remove-user` | Manage who can see a ticket |
-| `/blacklist` · `/unblacklist` | Block or unblock a user |
-| `/close` | Close the ticket and save its transcript |
-| `/cmds` | Show every command inside Discord |
+| `/panel` | Posta o painel de pedidos num canal |
+| `/queue` | Veja e gerencie sua carga de trabalho |
+| `/add-queue` | Adiciona um pedido recebido por DM |
+| `/status` | Atualiza o status e a prioridade de um pedido |
+| `/done` | Marca um pedido como concluído |
+| `/note` · `/notes` | Adiciona e vê notas privadas |
+| `/add-user` · `/remove-user` | Gerencia quem enxerga um ticket |
+| `/blacklist` · `/unblacklist` | Bloqueia ou desbloqueia um usuário |
+| `/close` | Fecha o ticket e salva o transcript |
+| `/cmds` | Mostra todos os comandos dentro do Discord |
 
 <br />
 
-## How it works
+## Como funciona
 
-Fizz is a self-hosted **discord.js** bot backed by **Prisma + SQLite**. Every message in a ticket is written to the database the moment it is sent, so the transcript is never tied to the Discord channel staying alive. Attachments are re-hosted so links keep working after Discord's CDN links expire.
+O Fizz é um bot **self-hosted** em **discord.js**, com **Prisma + SQLite**. Cada mensagem de um ticket é gravada no banco no instante em que é enviada, então o transcript não depende do canal do Discord continuar vivo. Os anexos são re-hospedados para os links continuarem funcionando depois que os links do CDN do Discord expiram.
 
-A companion **web dashboard** (Next.js) is in the works, giving you every ticket, transcript, queue control and stat in your browser.
+Um **dashboard web** (Next.js) está em desenvolvimento, dando acesso a todos os tickets, transcripts, controle da fila e estatísticas direto no navegador.
 
 ```
 Discord  ─┐
-          ├─►  Fizz bot (discord.js)  ─►  SQLite (Prisma)  ─►  Dashboard (Next.js)
-Clients  ─┘                                    │
-                                               └─►  Transcripts + re-hosted images
+          ├─►  Bot Fizz (discord.js)  ─►  SQLite (Prisma)  ─►  Dashboard (Next.js)
+Clientes ─┘                                   │
+                                              └─►  Transcripts + imagens re-hospedadas
 ```
 
 <br />
 
-## This repository
+## Este repositório
 
-This repo hosts the **Fizz landing page**, a static site (plain HTML, CSS and JavaScript, no build step) deployed on Cloudflare Pages.
+Este repo hospeda a **landing page do Fizz**, um site estático (HTML, CSS e JavaScript puro, sem build) publicado no Cloudflare Pages.
 
 ```
 index.html      styles.css      assets/
 js/  smooth-scroll · intro · canvas · story · app
 ```
 
-Run it locally with any static server:
+Rodar localmente com qualquer servidor estático:
 
 ```bash
 npx http-server -p 4173
@@ -118,11 +118,11 @@ npx http-server -p 4173
 
 <br />
 
-## Add Fizz
+## Adicionar o Fizz
 
 <div align="center">
 
-[![Add to Server](https://img.shields.io/badge/Add%20Fizz%20to%20your%20server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/oauth2/authorize?client_id=1525731670886580365&permissions=268561424&scope=bot+applications.commands)
+[![Adicionar o Fizz ao seu servidor](https://img.shields.io/badge/Adicionar%20o%20Fizz%20ao%20seu%20servidor-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/oauth2/authorize?client_id=1525731670886580365&permissions=268561424&scope=bot+applications.commands)
 
 </div>
 
@@ -130,14 +130,14 @@ npx http-server -p 4173
 
 ## Links
 
-- **Website** · [fizz.gfxs0da.com](https://fizz.gfxs0da.com)
-- **Portfolio** · [gfxs0da.com](https://gfxs0da.com)
+- **Site** · [fizz.gfxs0da.com](https://fizz.gfxs0da.com)
+- **Portfólio** · [gfxs0da.com](https://gfxs0da.com)
 - **Discord** · [discord.gg/s0da](https://discord.gg/s0da)
 
 <br />
 
 <div align="center">
 
-A project by **[@gfxs0da](https://gfxs0da.com)**
+Um projeto de **[@gfxs0da](https://gfxs0da.com)**
 
 </div>

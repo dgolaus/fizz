@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fizz · Commission management for Discord</title>
+  <meta name="description" content="Fizz gives artists, designers and freelancers one place to take orders, manage their workload and keep every project documented." />
+  <link rel="icon" href="assets/s0da-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Inter+Tight:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    document.documentElement.classList.add('js');
+    try { if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('reduced'); } catch (e) {}
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#workflow">Skip to content</a>
+
+  <!-- ============ INTRO ============ -->
+  <div class="intro" id="intro" hidden>
+    <div class="intro-core" aria-hidden="true">
+      <span class="intro-logo">
+        <img src="assets/s0da-logo.png" alt="" width="44" height="44" />
+        <svg class="intro-ring" viewBox="0 0 72 72"><circle cx="36" cy="36" r="33" /></svg>
+      </span>
+      <div class="intro-words">
+        <span>Order.</span>
+        <span>Queue.</span>
+        <span class="red">Deliver.</span>
+      </div>
+    </div>
+    <button class="intro-skip" type="button" id="introSkip">Skip intro</button>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="wrap nav-in">
+      <a class="brand" href="#top" aria-label="Fizz, back to top">
+        <img src="assets/s0da-logo.png" alt="" width="26" height="26" />
+        <span>Fizz</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#workflow">Workflow</a>
+        <a href="#queue">Queue</a>
+        <a href="#transcripts">Transcripts</a>
+        <a href="#commands">Commands</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn btn-red btn-sm" href="https://discord.com/oauth2/authorize?client_id=1525731670886580365&permissions=268561424&scope=bot+applications.commands" target="_blank" rel="noopener">Add to Server</a>
+        <button class="nav-burger" id="navBurger" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- mobile menu -->
+  <div class="mob-menu" id="mobMenu">
+    <nav aria-label="Mobile">
+      <a href="#workflow">Workflow</a>
+      <a href="#queue">Queue</a>
+      <a href="#transcripts">Transcripts</a>
+      <a href="#commands">Commands</a>
+      <a class="btn btn-red" href="https://discord.com/oauth2/authorize?client_id=1525731670886580365&permissions=268561424&scope=bot+applications.commands" target="_blank" rel="noopener">Add to Server</a>
+    </nav>
+  </div>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <canvas class="net" id="net" aria-hidden="true"></canvas>
+
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="k-label hero-eyebrow hero-el"><span class="dot"></span> Commission management for Discord</p>
+          <h1 class="hero-title">
+            <span class="w w1 hero-el">Order.</span>
+            <span class="w w2 hero-el">Queue.</span>
+            <span class="w w3 red hero-el">Deliver.</span>
+          </h1>
+          <p class="hero-sub hero-el">Fizz gives artists, designers and freelancers one place to take orders, manage their workload and keep every project documented.</p>
+          <p class="hero-tags hero-el">Private tickets · Live queue · Project status · Saved transcripts</p>
+          <div class="hero-cta hero-el">
+            <a class="btn btn-red" href="https://discord.com/oauth2/authorize?client_id=1525731670886580365&permissions=268561424&scope=bot+applications.commands" target="_blank" rel="noopener">Add to Server</a>
+            <a class="btn btn-line" href="#workflow">See how it works</a>
+          </div>
+        </div>
+
+        <!-- live product micro demo, fictional data only -->
+        <div class="demo panel hero-el" id="heroDemo" data-s="3" aria-hidden="true">
+          <i class="cdot c1"></i><i class="cdot c2"></i><i class="cdot c3"></i><i class="cdot c4"></i>
+          <div class="demo-head">
+            <span class="pulse"></span>
+            <span class="k-label">#commissions · live demo</span>
+          </div>
+
+          <div class="demo-stage">
+            <div class="demo-ticket">
+              <p class="sys">Private ticket #041 created</p>
+              <div class="bubble">
+                <span class="ava"></span>
+                <div>
+                  <p class="who">Client #1 <time>Jul 12 · 09:02</time></p>
+                  <p class="txt">hey! can i order a thumbnail for my game?</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="demo-queue">
+              <p class="k-label dq-title">Order queue ·
+                <span class="count"><b class="n2">2 pending</b><b class="n3">3 pending</b></span>
+              </p>
+              <div class="dq-rows">
+                <div class="dq-row r1">
+                  <span class="dq-pos">1</span>
+                  <span class="dq-name">Client #2 <em>Game icon</em></span>
+                  <span class="chip chip-prog">In progress</span>
+                  <span class="dq-date">Jul 10</span>
+                </div>
+                <div class="dq-row r2">
+                  <span class="dq-pos">2</span>
+                  <span class="dq-name">Client #3 <em>Banner</em></span>
+                  <span class="chip chip-wait">Waiting</span>
+                  <span class="dq-date">Jul 11</span>
+                </div>
+                <div class="dq-row rnew">
+                  <span class="dq-pos">3</span>
+                  <span class="dq-name">Client #1 <em>Thumbnail</em></span>
+                  <span class="chip-swap">
+                    <span class="chip chip-wait">Waiting</span>
+                    <span class="chip chip-prog">In progress</span>
+                  </span>
+                  <span class="dq-date">Jul 12</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="demo-foot k-label">Statuses update as you work.</p>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#why" aria-label="Scroll to the next section">
+        <span class="cue-box" aria-hidden="true">↓</span>
+        <span class="k-label">Scroll</span>
+      </a>
+    </section>
+
+    <!-- ============ MARQUEE BAND ============ -->
+    <div class="band" id="band" aria-hidden="true">
+      <div class="band-track">
+        <span>Order</span><span>Queue</span><span>Progress</span><span class="red">Deliver</span><span>Archive</span>
+        <span>Order</span><span>Queue</span><span>Progress</span><span class="red">Deliver</span><span>Archive</span>
+        <span>Order</span><span>Queue</span><span>Progress</span><span class="red">Deliver</span><span>Archive</span>
+      </div>
+    </div>
+
+    <!-- ============ WHY ============ -->
+    <section class="why" id="why">
+      <div class="wrap">
+        <p class="why-lede" data-rv>Commissions get messy fast. Orders buried in DMs, no clear line of who is next, and project history that disappears when a channel is deleted. <strong>Fizz keeps the whole process in order.</strong></p>
+        <div class="why-checks">
+          <div class="wcheck" data-rv><span class="wc-ic" aria-hidden="true">✓</span> No lost DMs</div>
+          <div class="wcheck" data-rv><span class="wc-ic" aria-hidden="true">✓</span> No messy order lists</div>
+          <div class="wcheck" data-rv><span class="wc-ic" aria-hidden="true">✓</span> No missing ticket history</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORKFLOW · SCROLL STORY ============ -->
+    <section class="story" id="workflow">
+      <div class="wrap story-head">
+        <p class="k-label red-label" data-rv>Workflow</p>
+        <h2 data-rv>From order to delivery.</h2>
+      </div>
+
+      <!-- desktop sticky storytelling -->
+      <div class="story-track" id="storyTrack">
+        <div class="story-sticky">
+          <div class="wrap story-grid">
+
+            <aside class="story-rail" id="storyRail">
+              <div class="st-bar" id="stBarFillRail" aria-hidden="true"></div>
+              <div class="st-i" data-i="0">
+                <p class="k-label">Step 01 · Open</p>
+                <h3>A ticket opens</h3>
+                <p>A client opens a private ticket. The order starts in its own space, away from public channels.</p>
+              </div>
+              <div class="st-i" data-i="1">
+                <p class="k-label">Step 02 · Queue</p>
+                <h3>The queue updates</h3>
+                <p>The project joins your queue automatically, right next to orders you added from DMs.</p>
+              </div>
+              <div class="st-i" data-i="2">
+                <p class="k-label">Step 03 · Priority</p>
+                <h3>Flexible priority</h3>
+                <p>Optional Rush Priority can move urgent projects ahead of standard orders.</p>
+              </div>
+              <div class="st-i" data-i="3">
+                <p class="k-label">Step 04 · Progress</p>
+                <h3>Work moves forward</h3>
+                <p>Update the status as you work and keep private notes hidden from clients.</p>
+              </div>
+              <div class="st-i" data-i="4">
+                <p class="k-label">Step 05 · Deliver</p>
+                <h3>Files land in the ticket</h3>
+                <p>Send the final files inside the ticket. Everything stays attached to the order.</p>
+              </div>
+              <div class="st-i" data-i="5">
+                <p class="k-label">Step 06 · Archive</p>
+                <h3>The record stays</h3>
+                <p>Close the ticket. The full conversation is saved as a transcript.</p>
+              </div>
+            </aside>
+
+            <div class="story-view">
+              <p class="story-word" id="stWord" aria-hidden="true">Open</p>
+
+              <div class="story-panel panel" id="stPanel" aria-hidden="true">
+                <i class="cdot c1"></i><i class="cdot c2"></i><i class="cdot c3"></i><i class="cdot c4"></i>
+
+                <!-- layer 1 · ticket opens -->
+                <div class="sl" id="slTicket">
+                  <div class="sl-head">
+                    <span class="k-label">Ticket #041 · Thumbnail order</span>
+                    <span class="chip chip-open">Open</span>
+                  </div>
+                  <p class="sys">Private ticket created</p>
+                  <div class="bubble">
+                    <span class="ava"></span>
+                    <div>
+                      <p class="who">Client #1 <time>Jul 12 · 09:02</time></p>
+                      <p class="txt">hi! could you make a thumbnail for my game?</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- layer 2 · queue, rush, progress -->
+                <div class="sl" id="slQueue">
+                  <div class="sl-head">
+                    <span class="k-label">Order queue ·
+                      <span class="count"><b class="n2" id="stC2">2 pending</b><b class="n3" id="stC3">3 pending</b></span>
+                    </span>
+                  </div>
+                  <div class="q-slots">
+                    <div class="q-slot" id="stRowA">
+                      <span class="dq-pos">·</span>
+                      <span class="dq-name">Client #2 <em>Game icon</em></span>
+                      <span class="chip chip-prog">In progress</span>
+                    </div>
+                    <div class="q-slot" id="stRowB">
+                      <span class="dq-pos">·</span>
+                      <span class="dq-name">Client #3 <em>Banner</em></span>
+                      <span class="chip chip-wait">Waiting</span>
+                    </div>
+                    <div class="q-slot rowc" id="stRowC">
+                      <span class="dq-pos">·</span>
+                      <span class="dq-name">Client #1 <em>Thumbnail</em></span>
+                      <span class="chip chip-rush" id="stBadge">Rush</span>
+                      <span class="chip-swap">
+                        <span class="chip chip-wait" id="stChipWait">Waiting</span>
+                        <span class="chip chip-prog" id="stChipProg">In progress</span>
+                      </span>
+                    </div>
+                  </div>
+                  <p class="st-note" id="stNote">private note · client wants a bold red title</p>
+                </div>
+
+                <!-- layer 3 · deliver -->
+                <div class="sl" id="slDeliver">
+                  <div class="sl-head">
+                    <span class="k-label">Ticket #041 · Thumbnail order</span>
+                    <span class="chip chip-prog">In progress</span>
+                  </div>
+                  <div class="bubble" id="stM1">
+                    <span class="ava ava-red"></span>
+                    <div>
+                      <p class="who">Artist <time>Jul 15 · 16:40</time></p>
+                      <p class="txt">final files are attached below.</p>
+                      <div class="att">
+                        <span class="att-ic" aria-hidden="true">▣</span>
+                        <span class="att-name">thumbnail-final.png</span>
+                        <span class="att-bar"><i id="stAttBar"></i></span>
+                        <span class="att-size">2.4 MB</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bubble" id="stM2">
+                    <span class="ava"></span>
+                    <div>
+                      <p class="who">Client #1 <time>Jul 15 · 16:52</time></p>
+                      <p class="txt">looks great, thank you.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- layer 4 · archive -->
+                <div class="sl" id="slArchive">
+                  <div class="sl-head">
+                    <span class="k-label">Ticket #041 · Thumbnail order</span>
+                    <span class="chip chip-closed">Closed</span>
+                  </div>
+                  <div class="arc-lines" id="stArcLines">
+                    <p>Client #1 · hi! could you make a thumbnail for my game?</p>
+                    <p>Artist · sure. i will send a first version today.</p>
+                    <p>Artist · final files are attached below.</p>
+                    <p>Client #1 · looks great, thank you.</p>
+                  </div>
+                  <p class="stamp" id="stStamp"><span aria-hidden="true">✓</span> Transcript saved</p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- mobile and reduced motion: stacked steps -->
+      <div class="wrap story-stages">
+        <article class="stage-card" data-rv>
+          <p class="k-label">Step 01 · Open</p>
+          <h3>A ticket opens</h3>
+          <p>A client opens a private ticket. The order starts in its own space, away from public channels.</p>
+          <div class="mini"><span class="chip chip-open">Open</span><span class="mini-t">Ticket #041 · Client #1 · Thumbnail order</span></div>
+        </article>
+        <article class="stage-card" data-rv>
+          <p class="k-label">Step 02 · Queue</p>
+          <h3>The queue updates</h3>
+          <p>The project joins your queue automatically, right next to orders you added from DMs.</p>
+          <div class="mini"><span class="chip chip-wait">Waiting</span><span class="mini-t">Position 3 · added Jul 12</span></div>
+        </article>
+        <article class="stage-card" data-rv>
+          <p class="k-label">Step 03 · Priority</p>
+          <h3>Flexible priority</h3>
+          <p>Optional Rush Priority can move urgent projects ahead of standard orders.</p>
+          <div class="mini"><span class="chip chip-rush">Rush</span><span class="mini-t">Optional · position 3 → 1</span></div>
+        </article>
+        <article class="stage-card" data-rv>
+          <p class="k-label">Step 04 · Progress</p>
+          <h3>Work moves forward</h3>
+          <p>Update the status as you work and keep private notes hidden from clients.</p>
+          <div class="mini"><span class="chip chip-prog">In progress</span><span class="mini-t">private note · bold red title</span></div>
+        </article>
+        <article class="stage-card" data-rv>
+          <p class="k-label">Step 05 · Deliver</p>
+          <h3>Files land in the ticket</h3>
+          <p>Send the final files inside the ticket. Everything stays attached to the order.</p>
+          <div class="mini"><span class="chip chip-prog">In progress</span><span class="mini-t">thumbnail-final.png · 2.4 MB</span></div>
+        </article>
+        <article class="stage-card" data-rv>
+          <p class="k-label">Step 06 · Archive</p>
+          <h3>The record stays</h3>
+          <p>Close the ticket. The full conversation is saved as a transcript.</p>
+          <div class="mini"><span class="chip chip-closed">Closed</span><span class="mini-t">Transcript saved</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ QUEUE · INTERACTIVE ============ -->
+    <section class="queue-sec" id="queue">
+      <div class="wrap queue-grid">
+        <div class="queue-copy">
+          <p class="k-label red-label" data-rv>Live queue</p>
+          <h2 data-rv>One queue for every order.</h2>
+          <p class="lede" data-rv>Ticket orders and DM clients stay together in one clear queue, with positions, statuses and dates at a glance.</p>
+          <p class="sub-note" data-rv>Optional Rush Priority can move urgent projects ahead.</p>
+          <p class="k-label try-hint" data-rv>Try it · press Rush on an order</p>
+        </div>
+
+        <div class="iq panel" data-rv>
+          <div class="demo-head">
+            <span class="pulse"></span>
+            <span class="k-label">Order queue ·  <span id="iqCount">3 pending</span></span>
+          </div>
+          <div class="iq-list" id="iqList">
+            <div class="dq-row">
+              <span class="dq-pos">1</span>
+              <span class="dq-name">Client #1 <em>Thumbnail</em></span>
+              <span class="chip chip-prog">In progress</span>
+              <span class="dq-date">Jul 12</span>
+            </div>
+            <div class="dq-row">
+              <span class="dq-pos">2</span>
+              <span class="dq-name">Client #2 <em>Game icon</em></span>
+              <span class="chip chip-wait">Waiting</span>
+              <span class="dq-date">Jul 13</span>
+            </div>
+            <div class="dq-row" id="iqRushRow">
+              <span class="dq-pos">3</span>
+              <span class="dq-name">Client #3 <em>Banner</em></span>
+              <span class="chip chip-rush iq-badge">Rush</span>
+              <span class="chip chip-wait iq-wait">Waiting</span>
+              <span class="dq-date">Jul 14</span>
+              <button class="btn-rush" id="iqRushBtn" type="button" aria-pressed="false">Rush</button>
+            </div>
+          </div>
+          <p class="iq-live k-label" id="iqLive" aria-live="polite">Optional Rush Priority moves urgent orders ahead.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TRANSCRIPTS ============ -->
+    <section class="ts-sec" id="transcripts">
+      <div class="wrap">
+        <div class="ts-head-copy">
+          <p class="k-label red-label" data-rv>Every project, documented</p>
+          <h2 data-rv>The ticket closes.<br />The record stays.</h2>
+          <p class="lede" data-rv>Fizz saves messages, images, timestamps and participants while the conversation happens. Close the ticket and the project history remains available.</p>
+        </div>
+
+        <div class="ts-app panel" id="tsApp" data-rv>
+          <aside class="ts-side" aria-label="Closed tickets">
+            <p class="k-label ts-side-t">Closed tickets</p>
+            <button class="ts-tab on" type="button" data-t="t41">
+              <span class="tt-num">#041</span> Thumbnail
+            </button>
+            <button class="ts-tab" type="button" data-t="t40">
+              <span class="tt-num">#040</span> Game icon
+            </button>
+            <button class="ts-tab" type="button" data-t="t39">
+              <span class="tt-num">#039</span> Banner
+            </button>
+          </aside>
+
+          <div class="ts-main" id="tsMain">
+            <!-- rendered by app.js; initial state server-rendered for no-JS -->
+            <div class="ts-top">
+              <span class="k-label">Ticket #041 · Thumbnail order</span>
+              <span class="chip chip-closed">Closed</span>
+            </div>
+            <p class="ts-meta">Opened Jul 12 · Closed Jul 15 · Client #1 + Artist</p>
+            <div class="ts-msgs">
+              <div class="bubble msg"><span class="ava"></span><div><p class="who">Client #1 <time>Jul 12 · 09:02</time></p><p class="txt">hi! could you make a thumbnail for my game?</p></div></div>
+              <div class="bubble msg"><span class="ava ava-red"></span><div><p class="who">Artist <time>Jul 12 · 09:20</time></p><p class="txt">sure. i will send a first version today.</p></div></div>
+              <div class="bubble msg"><span class="ava"></span><div><p class="who">Client #1 <time>Jul 14 · 18:12</time></p><p class="txt">could you make the main object stand out more?</p></div></div>
+              <div class="bubble msg"><span class="ava ava-red"></span><div><p class="who">Artist <time>Jul 14 · 18:30</time></p><p class="txt">yes, i will adjust the contrast and send an updated version.</p></div></div>
+              <div class="bubble msg"><span class="ava ava-red"></span><div><p class="who">Artist <time>Jul 15 · 16:40</time></p><p class="txt">final files are attached below.</p><div class="att"><span class="att-ic" aria-hidden="true">▣</span><span class="att-name">thumbnail-final.png</span><span class="att-size">2.4 MB</span></div></div></div>
+              <div class="bubble msg"><span class="ava"></span><div><p class="who">Client #1 <time>Jul 15 · 16:52</time></p><p class="txt">looks great, thank you.</p></div></div>
+            </div>
+            <p class="ts-note">private note · client prefers bold titles</p>
+            <p class="ts-foot k-label">Transcript saved · channel deleted</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="features" id="features">
+      <div class="wrap">
+        <p class="k-label red-label" data-rv>Features</p>
+        <h2 data-rv>Built for commission work.</h2>
+
+        <div class="feat-grid">
+          <div class="feat" data-rv>
+            <p class="k-label">Accept orders</p>
+            <h3>Private tickets in one click</h3>
+            <p>Clients open a private ticket instantly. Each order lives in its own space, separate from public channels.</p>
+          </div>
+          <div class="feat" data-rv>
+            <p class="k-label">Manage your workload</p>
+            <h3>Tickets and DMs, one list</h3>
+            <p>Keep ticket orders and DM clients in one queue, with positions, manual entries and optional Rush Priority.</p>
+          </div>
+          <div class="feat" data-rv>
+            <p class="k-label">Track project status</p>
+            <h3>From waiting to completed</h3>
+            <p>Move orders from waiting to in progress and completed, keeping your workload clear at every stage.</p>
+          </div>
+          <div class="feat" data-rv>
+            <p class="k-label">Keep every record</p>
+            <h3>Transcripts that stay</h3>
+            <p>Messages and attachments remain available in readable transcripts after tickets close.</p>
+          </div>
+        </div>
+
+        <p class="also" data-rv><span>Also included</span> · private notes · blacklist · add and remove users · slash commands</p>
+      </div>
+    </section>
+
+    <!-- ============ COMMANDS ============ -->
+    <section class="cmds" id="commands">
+      <div class="wrap">
+        <p class="k-label red-label" data-rv>Commands</p>
+        <h2 data-rv>Run it from Discord.</h2>
+
+        <div class="term panel" id="term" data-rv>
+          <div class="term-bar">
+            <i></i><i></i><i></i>
+            <span class="k-label">fizz · commands</span>
+          </div>
+          <div class="term-body">
+            <p class="t-line"><span class="t-ps" aria-hidden="true">&gt;</span> <span class="type"><code>/panel</code></span><span class="t-desc">Post the order panel in a channel</span></p>
+            <p class="t-line"><span class="t-ps" aria-hidden="true">&gt;</span> <span class="type"><code>/queue</code></span><span class="t-desc">See every order and its position</span></p>
+            <p class="t-line"><span class="t-ps" aria-hidden="true">&gt;</span> <span class="type"><code>/add-queue</code></span><span class="t-desc">Add an order that came through DMs</span></p>
+            <p class="t-line"><span class="t-ps" aria-hidden="true">&gt;</span> <span class="type"><code>/status</code></span><span class="t-desc">Update an order's status and priority</span></p>
+            <p class="t-line"><span class="t-ps" aria-hidden="true">&gt;</span> <span class="type"><code>/close</code></span><span class="t-desc">Close the ticket and save the transcript</span></p>
+          </div>
+        </div>
+
+        <div class="cmds-more" data-rv>
+          <button class="btn btn-line" type="button" data-open-commands>View all commands</button>
+          <span class="k-label">or use /cmds inside Discord</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta">
+      <div class="wrap" data-rv>
+        <h2>Keep every commission under control.</h2>
+        <p class="lede">Add Fizz to your server and manage orders, statuses and project history from one place.</p>
+        <div class="hero-cta">
+          <a class="btn btn-red" href="https://discord.com/oauth2/authorize?client_id=1525731670886580365&permissions=268561424&scope=bot+applications.commands" target="_blank" rel="noopener">Add to Server</a>
+          <a class="btn btn-line" href="#commands">View commands</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="wrap foot-in">
+      <a class="brand" href="#top">
+        <img src="assets/s0da-logo.png" alt="" width="24" height="24" />
+        <span>Fizz</span>
+      </a>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="https://gfxs0da.com" target="_blank" rel="noopener">gfxs0da.com</a>
+        <a href="https://discord.gg/s0da" target="_blank" rel="noopener">Discord</a>
+        <a href="#workflow">Workflow</a>
+      </nav>
+      <p class="foot-note k-label">Built by gfxs0da</p>
+    </div>
+  </footer>
+
+  <!-- ============ ALL COMMANDS DIALOG ============ -->
+  <dialog class="cmds-dialog" id="cmdsDialog" aria-labelledby="cmdsTitle">
+    <button class="dialog-x" id="cmdsClose" type="button" aria-label="Close">✕</button>
+    <h2 id="cmdsTitle">All commands</h2>
+
+    <div class="dl-group">
+      <p class="k-label">Panel</p>
+      <dl>
+        <dt><code>/panel</code></dt><dd>Post the order panel in a channel</dd>
+      </dl>
+    </div>
+    <div class="dl-group">
+      <p class="k-label">Tickets</p>
+      <dl>
+        <dt><code>/close</code></dt><dd>Close the ticket and save its transcript</dd>
+        <dt><code>/done</code></dt><dd>Mark the order as completed</dd>
+        <dt><code>/add-user</code></dt><dd>Add someone to the ticket</dd>
+        <dt><code>/remove-user</code></dt><dd>Remove someone from the ticket</dd>
+        <dt><code>/note</code></dt><dd>Add a private note</dd>
+        <dt><code>/notes</code></dt><dd>View the ticket's private notes</dd>
+      </dl>
+    </div>
+    <div class="dl-group">
+      <p class="k-label">Queue</p>
+      <dl>
+        <dt><code>/queue</code></dt><dd>View the full order queue</dd>
+        <dt><code>/add-queue</code></dt><dd>Add a DM order to the queue</dd>
+        <dt><code>/remove-queue</code></dt><dd>Remove a manual entry</dd>
+        <dt><code>/status</code></dt><dd>Update an order's status and priority</dd>
+        <dt><code>/clear-queue</code></dt><dd>Clear the whole queue</dd>
+      </dl>
+    </div>
+    <div class="dl-group">
+      <p class="k-label">Moderation</p>
+      <dl>
+        <dt><code>/blacklist</code></dt><dd>Block a user from opening tickets</dd>
+        <dt><code>/unblacklist</code></dt><dd>Unblock a user</dd>
+      </dl>
+    </div>
+    <div class="dl-group">
+      <p class="k-label">Help</p>
+      <dl>
+        <dt><code>/cmds</code></dt><dd>Show every command inside Discord</dd>
+      </dl>
+    </div>
+  </dialog>
+
+  <script src="js/smooth-scroll.js"></script>
+  <script src="js/intro.js"></script>
+  <script src="js/canvas.js"></script>
+  <script src="js/story.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

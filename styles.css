@@ -909,3 +909,7 @@ html.reduced [data-rv], html:not(.js) [data-rv] { opacity: 1 !important; transfo
 html.reduced .band-track { animation: none; }
 html.reduced .cue-box, html.reduced .pulse { animation: none; }
 html.reduced .hero-el, html.reduced .demo { opacity: 1 !important; }
+
+/* status do lancamento privado */
+.hero-status { margin-top: 18px; }
+.cta-status { margin-top: 16px; }

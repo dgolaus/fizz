@@ -11,3 +11,4 @@ Thumbs.db
 
 # Dependencies (none needed for the static site, kept as a safeguard)
 node_modules/
+.wrangler/

@@ -10,7 +10,7 @@ Receba pedidos, organize sua fila e mantenha cada projeto documentado, tudo em u
 <br />
 
 [![Adicionar ao Servidor](https://img.shields.io/badge/Adicionar%20ao%20Servidor-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/oauth2/authorize?client_id=1525731670886580365&permissions=268561424&scope=bot+applications.commands)
-[![Site](https://img.shields.io/badge/fizz.gfxs0da.com-ff3b3b?style=for-the-badge&logoColor=white)](https://fizz.gfxs0da.com)
+[![Site](https://img.shields.io/badge/usefizz.app-ff3b3b?style=for-the-badge&logoColor=white)](https://usefizz.app)
 
 ![Node.js](https://img.shields.io/badge/Node.js-22-000000?style=flat-square&logo=node.js&logoColor=white)
 ![discord.js](https://img.shields.io/badge/discord.js-v14-000000?style=flat-square&logo=discord&logoColor=5865F2)
@@ -130,7 +130,7 @@ npx http-server -p 4173
 
 ## Links
 
-- **Site** · [fizz.gfxs0da.com](https://fizz.gfxs0da.com)
+- **Site** · [usefizz.app](https://usefizz.app)
 - **Portfólio** · [gfxs0da.com](https://gfxs0da.com)
 - **Discord** · [discord.gg/s0da](https://discord.gg/s0da)
 

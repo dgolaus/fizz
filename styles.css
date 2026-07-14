@@ -807,7 +807,7 @@ html:not(.js) .t-desc, html.reduced .t-desc { opacity: 1; }
 .cta .wrap { position: relative; }
 .cta h2 { font-size: clamp(38px, 6vw, 72px); letter-spacing: -0.045em; margin: 0; }
 .cta .lede { margin: 20px auto 0; }
-.cta .hero-cta { justify-content: center; margin-top: 36px; }
+.cta .hero-cta { justify-content: center; margin-top: 22px; }
 .cta-note { margin-top: 32px; }
 
 /* ---------- footer ---------- */

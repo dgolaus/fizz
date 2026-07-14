@@ -142,7 +142,7 @@ html.is-locked { overflow: hidden; }
   background: linear-gradient(160deg, #ff4643, var(--red-deep));
   border-color: rgba(255, 96, 92, 0.55);
 }
-.btn-red:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.btn-red:hover { filter: brightness(1.1); }
 .btn-line { color: #fff; background: transparent; border-color: var(--line-2); }
 .btn-line:hover { border-color: #fff; }
 .btn-sm { padding: 9px 16px; font-size: 13px; }
@@ -312,7 +312,7 @@ html.reduced .intro { display: none; }
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--faint);
 }
-.hero-cta { display: flex; gap: 12px; margin-top: 34px; flex-wrap: wrap; }
+.hero-cta { display: flex; align-items: center; gap: 12px; margin-top: 34px; flex-wrap: wrap; }
 
 /* hero load cascade */
 html.js .hero-el { opacity: 0; }

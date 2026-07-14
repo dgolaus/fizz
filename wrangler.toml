@@ -1,6 +1,13 @@
 name = "fizz"
 compatibility_date = "2024-11-01"
 
+# Dominios do produto: usefizz.app (principal) + espelho legado.
+routes = [
+  { pattern = "usefizz.app", custom_domain = true },
+  { pattern = "www.usefizz.app", custom_domain = true },
+  { pattern = "fizz.gfxs0da.com", custom_domain = true }
+]
+
 # Static site: serve the files in this folder as assets, no Worker script.
 [assets]
 directory = "."
